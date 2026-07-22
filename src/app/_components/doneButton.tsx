@@ -9,6 +9,7 @@ type DoneButtonProps = {
   shadow: string;
   borderColor: string;
   done: boolean;
+  size?: ComponentProps<typeof Button>["size"];
   onClick?: ComponentProps<"button">["onClick"];
 };
 
@@ -18,6 +19,7 @@ export default function DoneButton({
   shadow,
   borderColor,
   done,
+  size = "icon",
   onClick,
 }: DoneButtonProps) {
   const hoverColor = color.startsWith("bg-")
@@ -27,7 +29,7 @@ export default function DoneButton({
   return (
     <Button
       variant="outline"
-      size="icon"
+      size={size}
       type="button"
       className={`${borderColor} ${shadow} ${color} ${textColor} ${hoverColor} transition-transform duration-200 hover:scale-110 hover:cursor-pointer`}
       onClick={onClick}
